@@ -4,12 +4,12 @@
   "libraries": [
     {
       "provider": "filesystem",
-      "library": "Libs\\jquery-3.3.1.js",
+      "library": "Libs/jquery-3.3.1.js",
       "destination": "wwwroot/lib/jquery/"
     },
     {
       "provider": "filesystem",
-      "library": "Libs\\twitter-bootstrap@3.3.7",
+      "library": "Libs/twitter-bootstrap@3.3.7",
       "files": [
         "css/bootstrap.css",
         "css/bootstrap.css.map",
@@ -22,12 +22,12 @@
     },
     {
       "provider": "filesystem",
-      "library": "Libs\\jquery.validate.unobtrusive.js",
+      "library": "Libs/jquery.validate.unobtrusive.js",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
     },
     {
       "provider": "filesystem",
-      "library": "Libs\\jquery.validate.js",
+      "library": "Libs/jquery.validate.js",
       "destination": "wwwroot/lib/jquery-validate/",
       "files": [
         "jquery.validate.min.js",
@@ -40,7 +40,7 @@
     },
     {
       "provider": "filesystem",
-      "library": "Libs\\signalr",
+      "library": "Libs/signalr",
       "files": [
         "signalr.js",
         "signalr.min.js"
