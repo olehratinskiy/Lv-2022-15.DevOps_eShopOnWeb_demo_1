@@ -1,4 +1,7 @@
 USE [master];
+EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', 
+     N'Software\Microsoft\MSSQLServer\MSSQLServer',
+     N'LoginMode', REG_DWORD, 2;
 GO
 CREATE LOGIN WebUser 
     WITH PASSWORD    = N'w982757892&',
@@ -18,7 +21,4 @@ EXEC sp_addsrvrolemember
     @loginame = N'PublicApiUser', 
     @rolename = N'sysadmin';
 GO
-EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', 
-     N'Software\Microsoft\MSSQLServer\MSSQLServer',
-     N'LoginMode', REG_DWORD, 2;
 exit
