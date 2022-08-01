@@ -14,9 +14,9 @@ CHECK_EXPIRATION = OFF,
 CHECK_POLICY = OFF;
  
 use [Microsoft.eShopOnWeb.CatalogDb]
-create user cuser from login cuser;
+create user cataloguser from login cataloguser;
 use [Microsoft.eShopOnWeb.CatalogDb]
-exec sp_addrolemember 'db_owner', cuser;
+exec sp_addrolemember 'db_owner', cataloguser;
  
 USE [master]
  
@@ -27,8 +27,8 @@ CHECK_EXPIRATION = OFF,
 CHECK_POLICY = OFF;
  
 use [Microsoft.eShopOnWeb.Identity]
-create user iuser from login iuser;
+create user identityuser from login identityuser;
 use [Microsoft.eShopOnWeb.Identity]
-exec sp_addrolemember 'db_owner', iuser;
+exec sp_addrolemember 'db_owner', identityuser;
 
 exit
