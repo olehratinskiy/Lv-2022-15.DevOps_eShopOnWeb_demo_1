@@ -1,24 +1,34 @@
-USE [master];
-EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', 
+USE [master]
+GO
+EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE',
      N'Software\Microsoft\MSSQLServer\MSSQLServer',
-     N'LoginMode', REG_DWORD, 2;
+     N'LoginMode', REG_DWORD, 2
 GO
-CREATE LOGIN WebUser 
-    WITH PASSWORD    = N'w982757892&',
-    CHECK_POLICY     = ON,
-    CHECK_EXPIRATION = OFF;
-GO
-EXEC sp_addsrvrolemember 
-    @loginame = N'WebUser', 
-    @rolename = N'sysadmin';
-GO
-CREATE LOGIN PublicApiUser
-    WITH PASSWORD    = N'pa13456286*',
-    CHECK_POLICY     = ON,
-    CHECK_EXPIRATION = OFF;
-GO
-EXEC sp_addsrvrolemember 
-    @loginame = N'PublicApiUser', 
-    @rolename = N'sysadmin';
-GO
+ 
+USE [master]
+ 
+CREATE LOGIN cataloguser
+WITH PASSWORD = '',
+DEFAULT_DATABASE = [Microsoft.eShopOnWeb.CatalogDb],
+CHECK_EXPIRATION = OFF,
+CHECK_POLICY = OFF;
+ 
+use [Microsoft.eShopOnWeb.CatalogDb]
+create user cuser from login cuser;
+use [Microsoft.eShopOnWeb.CatalogDb]
+exec sp_addrolemember 'db_owner', cuser;
+ 
+USE [master]
+ 
+CREATE LOGIN identityuser
+WITH PASSWORD = '1',
+DEFAULT_DATABASE = [Microsoft.eShopOnWeb.Identity],
+CHECK_EXPIRATION = OFF,
+CHECK_POLICY = OFF;
+ 
+use [Microsoft.eShopOnWeb.Identity]
+create user iuser from login iuser;
+use [Microsoft.eShopOnWeb.Identity]
+exec sp_addrolemember 'db_owner', iuser;
+
 exit
