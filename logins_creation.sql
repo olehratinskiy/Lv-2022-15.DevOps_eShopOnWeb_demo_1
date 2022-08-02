@@ -8,7 +8,7 @@ GO
 USE [master]
  
 CREATE LOGIN cataloguser
-WITH PASSWORD = '',
+WITH PASSWORD = '1',
 DEFAULT_DATABASE = [Microsoft.eShopOnWeb.CatalogDb],
 CHECK_EXPIRATION = OFF,
 CHECK_POLICY = OFF;
